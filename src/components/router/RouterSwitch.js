@@ -17,7 +17,7 @@ export default function RouterSwitch() {
           item => 
             <Route exact path={item.endpoint} key={item.title}>
               <Layout title={item.title}>
-                {item.component()}
+                <item.component />
               </Layout>
             </Route>
         )
@@ -28,7 +28,7 @@ export default function RouterSwitch() {
         ).map(
           item => 
             <Route exact path={item.endpoint} key={item.title}>
-                {item.component()}
+                <item.component />
             </Route>
         )
       }

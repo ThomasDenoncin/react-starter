@@ -1,4 +1,7 @@
 import Home from "../../pages/home/Home";
+import CatchPokemon from "../../pages/CatchPokemon/CatchPokemon";
+import InfoPokemon from "../../pages/InfoPokemon/InfoPokemon";
+import TrainPokemon from "../../pages/TrainPokemon/TrainPokemon";
 
 export const LAYOUT_PRINCIPAL = 'layoutPrincipal';
 export const LAYOUT_USER = 'layoutUser';
@@ -11,15 +14,21 @@ export const routes = [
         layout: LAYOUT_PRINCIPAL,
     },
     {
-        endpoint: '/about',
-        title: 'About',
-        component: Home,
+        endpoint: '/catch',
+        title: 'Catch',
+        component: CatchPokemon,
         layout: LAYOUT_PRINCIPAL,
     },
     {
-        endpoint: '/user',
-        title: 'User',
-        component: Home,
+        endpoint: '/infos',
+        title: 'Infos',
+        component: InfoPokemon,
         layout: LAYOUT_PRINCIPAL,
-    }
+    },
+    {
+        endpoint: '/train',
+        title: 'Training',
+        component: TrainPokemon,
+        layout: LAYOUT_PRINCIPAL,
+    },
 ];

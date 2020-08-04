@@ -1,0 +1,12 @@
+.navbar{
+    padding: var(--padding-power);
+    display: flex;
+    justify-content: space-around;
+
+}
+.navbar__Link{
+    display: block;
+    font-size: 1.2em;
+    text-decoration: none;
+
+}

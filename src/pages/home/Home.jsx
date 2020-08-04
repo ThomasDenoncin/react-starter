@@ -1,34 +1,16 @@
-import React, { useReducer } from 'react';
-import HeroKiller from '../../components/heroKiller/HeroKiller';
-
-const homeInitialState = {
-    superHeroes: 'Batman',
-    vehicules: null,
-}
-
-function homeReducer(state, action) {
-    const newState = {...state};
-    switch(action.type) {
-        case 'setSuperHeroes':
-            newState.superHeroes = action.payload;
-            return newState;
-        case 'setVehicules':
-            newState.vehicules = !newState.vehicules ? 'Batmobile' : null;
-            return newState;
-        default:
-            throw new Error();
-    }
-}
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import { pokemonState } from '../../stores/pokemon.store';
+import SayMyName from '../../components/SayMyName/SayMyName';
 
 export default function Home() {
-    const [state, dispatch] = useReducer(homeReducer, homeInitialState);
-    
+    const [pokemon, setPokemon] = useRecoilState(pokemonState);
+
     return(
         <div>
-            <h2>{state.superHeroes}</h2>
-            <h3>{state.vehicules}</h3>
-            <HeroKiller dispatch={dispatch} />
-            <button onClick={() => dispatch({type: 'setVehicules'})}>Ride</button>
+            <h2>{pokemon.name}</h2>
+            <SayMyName />
+            <button onClick={() => setPokemon({action: 'changeName', name: 'Jeanjean'})}>Change Pokemon</button>
         </div>
     );
 }

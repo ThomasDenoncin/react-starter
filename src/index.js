@@ -8,9 +8,15 @@ import {
 } from "react-router-dom";
 import RouterSwitch from './components/router/RouterSwitch';
 
+import {
+  RecoilRoot,
+} from 'recoil';
+
 ReactDOM.render(
   <Router>
-    <RouterSwitch/>
+    <RecoilRoot>
+      <RouterSwitch/>
+    </RecoilRoot>
   </Router>,
   document.getElementById('root')
 );
