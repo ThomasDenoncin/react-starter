@@ -7,36 +7,35 @@ import { pokemonState } from '../../stores/pokemon.store';
 
 export default function CatchPokemon() {
     const [pokemon, setPokemon] = useRecoilState(pokemonState);
+    const numberMaxPokemon = 151;
+
+    console.log(pokemon);
 
     function catchPokemon (){
-        const numPoke = getRandomIntInclusive(1, 300)
+        const numPoke = getRandomIntInclusive(1, numberMaxPokemon)
         Axios
             .get(
                 `https://pokeapi.co/api/v2/pokemon/${numPoke}`)
             .then(resp =>{
-                    const poke = {...resp.data};
-                    poke.chiffre = numPoke
+                    const catchedPokemon = {...resp.data};
                     setPokemon({
                         action:'catchPokemon',
-                        pokemon: poke
+                        pokemon: catchedPokemon
                     });
+                    console.log(pokemon);
                 })
                 .catch(err =>{ console.log(err.code)});             
     }
-    
-    useEffect( ()=>{
-        let mounted = false;
-        if (!mounted){ 
-            catchPokemon();
-        }
-        return ()=> mounted=true;
-    },[])
         
     return(
-        <div className="catchPokemon">
-            <p>Nombre de pokemons disponibles : {pokemon && pokemon.name} </p>
-            <button onClick={catchPokemon}> va capturer le pokemon {pokemon && pokemon.id} </button>
-        </div>
-        
-            );
+        <div>
+            <p>Nombre de pokemons disponibles : {numberMaxPokemon} </p>
+            <div className="content-panel">
+                <h1>{pokemon.id || '-'}</h1>
+                <img src={pokemon.sprite} />
+                <h2>{pokemon.name}</h2>
+                <button className="btn--danger" onClick={catchPokemon}>Catch new</button>
+            </div>
+        </div>    
+    );
 }

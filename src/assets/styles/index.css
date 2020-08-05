@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+:root {
+  --color-principal: rgb(223, 183, 52);
+  --color-bg: rgb(218, 213, 195);
+  --padding-power: 15px
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+.content-panel {
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 0 3px rgba(50, 50, 50, .7);
+  text-align: center;
+}
+.content-panel > img {
+  max-width: 120px;
+  max-height: auto;
+}
+.content-panel > h2:last-child {
+  margin-bottom: 0;
+}

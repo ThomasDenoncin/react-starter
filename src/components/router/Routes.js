@@ -19,16 +19,16 @@ export const routes = [
         component: CatchPokemon,
         layout: LAYOUT_PRINCIPAL,
     },
-    {
-        endpoint: '/infos',
-        title: 'Infos',
-        component: InfoPokemon,
-        layout: LAYOUT_PRINCIPAL,
-    },
-    {
-        endpoint: '/train',
-        title: 'Training',
-        component: TrainPokemon,
-        layout: LAYOUT_PRINCIPAL,
-    },
+    // {
+    //     endpoint: '/infos',
+    //     title: 'Infos',
+    //     component: InfoPokemon,
+    //     layout: LAYOUT_PRINCIPAL,
+    // },
+    // {
+    //     endpoint: '/train',
+    //     title: 'Training',
+    //     component: TrainPokemon,
+    //     layout: LAYOUT_PRINCIPAL,
+    // },
 ];

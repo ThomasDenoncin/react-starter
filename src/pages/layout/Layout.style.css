@@ -4,27 +4,27 @@
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-areas:
-    'header'
     'nav'
+    'header'
     ' . '
-    
-    
-
 }
 
 
 .Layout__navbar{
     grid-area: nav;
-    background-color: yellowgreen; 
+    background-color: white;
 } 
 .Layout__header{
     grid-area: header;
-    background: orange;
+    background-color: #333;
+    color: white;
+    padding: 15px;
 }
 .Layout__main{
-    background: blueviolet;
-    font-size: 2.5em;
+    font-size: 1.5em;
     overflow-y: auto;
-    box-shadow: inset 0 5px 15px rgba(0,0,0, 1) ;
-
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }

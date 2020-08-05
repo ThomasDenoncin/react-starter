@@ -3,21 +3,29 @@ import {
   selector,
 } from 'recoil';
 
+import mickey from './../assets/images/mickey.png'
+
 const pokemonInitialState = atom({
     key: 'pokemonInitialState',
     default: {
         id:null,
         name: 'Michel',
-        sprite: null,
+        sprite_default: mickey,
         weigth: null,
         height: null,
     }
 });
 
 export const pokemonState = selector({
-    key: 'pokemonState',
+    key: 'pokemonState', 
     get: ({get}) => {
-        return get(pokemonInitialState);
+        const pokemon = get(pokemonInitialState);
+        const sprite =
+            pokemon.sprite_default ?
+            pokemon.sprite_default :
+            pokemon.sprites.front_default;
+
+        return {...pokemon, sprite};
     },
     set: ({set}, payload) => {
         const newState = {...pokemonInitialState};
