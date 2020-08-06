@@ -20,12 +20,12 @@ export const pokemonState = selector({
     key: 'pokemonState', 
     get: ({get}) => {
         const pokemon = get(pokemonInitialState);
-        const sprite =
+        const pokemonSprite =
             pokemon.sprite_default ?
             pokemon.sprite_default :
             pokemon.sprites.front_default;
 
-        return {...pokemon, sprite};
+        return {pokemon, pokemonSprite};
     },
     set: ({set}, payload) => {
         const newState = {...pokemonInitialState};

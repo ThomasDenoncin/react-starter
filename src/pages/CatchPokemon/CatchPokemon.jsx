@@ -6,7 +6,7 @@ import { pokemonState } from '../../stores/pokemon.store';
 
 
 export default function CatchPokemon() {
-    const [pokemon, setPokemon] = useRecoilState(pokemonState);
+    const [{pokemon, pokemonSprite}, setPokemon] = useRecoilState(pokemonState);
     const numberMaxPokemon = 151;
 
     console.log(pokemon);
@@ -32,7 +32,7 @@ export default function CatchPokemon() {
             <p>Nombre de pokemons disponibles : {numberMaxPokemon} </p>
             <div className="content-panel">
                 <h1>{pokemon.id || '-'}</h1>
-                <img src={pokemon.sprite} />
+                <img src={pokemonSprite} />
                 <h2>{pokemon.name}</h2>
                 <button className="btn--danger" onClick={catchPokemon}>Catch new</button>
             </div>
